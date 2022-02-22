@@ -5,14 +5,22 @@
     <vendor>yyt231</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.yyt231.mvvmplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.yyt231.mvvmplugin.services.MyProjectService"/>
     </extensions>
 
+
+
     <applicationListeners>
         <listener class="com.github.yyt231.mvvmplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="other.SamplePluginTemplateProviderImpl" />
+    </extensions>
 </idea-plugin>
